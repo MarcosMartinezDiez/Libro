@@ -21,4 +21,12 @@ public class Libro {
         autor = autorLibro;
         titulo = tituloLibro;
     }
+    
+    public String autor(){
+        return autor;
+    }
+    
+    public String titulo(){
+        return titulo;
+    }
 }
