@@ -18,12 +18,12 @@ public class Libro {
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, String numeroDeReferencia)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas= numeroDePaginas;
-        numeroReferencia= numeroDeReferencia;
+        numeroReferencia= "";
     }
 
     public String getAutor(){
@@ -51,7 +51,7 @@ public class Libro {
     }
 
     public void imprimirDetalles(){
-        if (numeroReferencia == ""){
+        if (numeroReferencia.length() == 0){
             System.out.println("--");
         }
         else {
