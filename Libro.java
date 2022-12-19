@@ -13,15 +13,17 @@ public class Libro {
     private String autor;
     private String titulo;
     private int numeroPaginas;
+    private String numeroReferencia;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, String numeroDeReferencia)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas= numeroDePaginas;
+        numeroReferencia= numeroDeReferencia;
     }
 
     public String getAutor(){
@@ -49,11 +51,34 @@ public class Libro {
     }
 
     public void imprimirDetalles(){
-        System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas);
+        if (numeroReferencia == ""){
+            System.out.println("--");
+        }
+        else {
+            System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia);        
+        }
     }
 
     public String getDetalles(){
-        return("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas);
+        String numeroRef = numeroReferencia;
+        if (numeroRef == ""){
+            numeroRef= ("--");
+        }
+        else {
+            numeroRef = ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia);      
+        }
+        return numeroRef;
+    }
+
+    public String getReferencia(){
+        if (numeroReferencia.length()>=3) {
+            System.out.println("ERROR numero de referencia inválido");
+        }
+        return numeroReferencia;
+    }
+
+    public void setNumeroReferencia(String numeroDeReferencia){
+        numeroReferencia = numeroDeReferencia;
     }
 }
 
