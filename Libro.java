@@ -52,7 +52,7 @@ public class Libro {
 
     public void imprimirDetalles(){
         if (numeroReferencia.length() == 0){
-            System.out.println("--");
+            System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: --");
         }
         else {
             System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia);        
@@ -62,7 +62,7 @@ public class Libro {
     public String getDetalles(){
         String numeroRef = numeroReferencia;
         if (numeroRef == ""){
-            numeroRef= ("--");
+            numeroRef= ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: --");
         }
         else {
             numeroRef = ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia);      
