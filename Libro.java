@@ -15,6 +15,7 @@ public class Libro {
     private int numeroPaginas;
     private String numeroReferencia;
     private int vecesPrestado;
+    private boolean esLibroDeTexto;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -53,21 +54,29 @@ public class Libro {
     }
 
     public void imprimirDetalles(){
+        String libroTexto= " falso";
         if (numeroReferencia.length() == 0){
             System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: -- Veces que ha sido prestado " + vecesPrestado);
         }
+        if (esLibroDeTexto){
+            libroTexto= "verdadero";
+        }
         else {
-            System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia+" Veces que ha sido prestado " + vecesPrestado);        
+            System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia+" Veces que ha sido prestado " + vecesPrestado + libroTexto);        
         }
     }
 
     public String getDetalles(){
         String numeroRef = numeroReferencia;
+        String libroTexto= " falso";
         if (numeroRef == ""){
             numeroRef= ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: -- Veces que ha sido prestado " + vecesPrestado);
         }
+        if (esLibroDeTexto){
+            libroTexto= "verdadero";
+        }
         else {
-            numeroRef = ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia+" Veces que ha sido prestado " + vecesPrestado);      
+            numeroRef = ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia+" Veces que ha sido prestado " + vecesPrestado + libroTexto);      
         }
         return numeroRef;
     }
@@ -89,6 +98,10 @@ public class Libro {
     
     public int getVecesPrestado(){
         return vecesPrestado;
+    }
+    
+    public boolean getEsLibroDeTexto(){
+        return esLibroDeTexto;
     }
 }
 
