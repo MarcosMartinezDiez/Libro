@@ -1,4 +1,3 @@
-
 /**
  * Una clase que representa objetos libro.
  * Esta clase podria formar parte de un
@@ -20,88 +19,105 @@ public class Libro {
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, int numeroDeVecesPrestado, boolean texto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
-        numeroPaginas= numeroDePaginas;
-        numeroReferencia= "";
-        vecesPrestado = 0;
+        numeroPaginas = numeroDePaginas;
+        numeroReferencia = "";
+        vecesPrestado = numeroDeVecesPrestado;
+        esLibroDeTexto = texto;
     }
 
-    public String getAutor(){
+    public String getAutor (){
         return autor;
     }
 
-    public String getTitulo(){
+    public String getTitulo (){
         return titulo;
     }
 
-    public void imprimirTitulo(){
-        System.out.println("##################");
-        System.out.println("Titulo: " + titulo);
-        System.out.println("##################");
-    }
-
-    public void imprimirAutor(){
-        System.out.println("##################");
-        System.out.println("Autor: " + autor);
-        System.out.println("##################");
-    }
-
-    public int getNumeroPaginas(){
+    public int getNumeroPaginas (){
         return numeroPaginas;
     }
 
-    public void imprimirDetalles(){
-        String libroTexto= " falso";
-        if (numeroReferencia.length() == 0){
-            System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: -- Veces que ha sido prestado " + vecesPrestado);
-        }
-        if (esLibroDeTexto){
-            libroTexto= "verdadero";
-        }
-        else {
-            System.out.println("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia+" Veces que ha sido prestado " + vecesPrestado + libroTexto);        
-        }
-    }
-
-    public String getDetalles(){
-        String numeroRef = numeroReferencia;
-        String libroTexto= " falso";
-        if (numeroRef == ""){
-            numeroRef= ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: -- Veces que ha sido prestado " + vecesPrestado);
-        }
-        if (esLibroDeTexto){
-            libroTexto= "verdadero";
-        }
-        else {
-            numeroRef = ("Titulo: "+titulo+" Autor: "+autor+" Paginas: "+numeroPaginas +" Numero de referencia: "+numeroReferencia+" Veces que ha sido prestado " + vecesPrestado + libroTexto);      
-        }
-        return numeroRef;
-    }
-
-    public String getReferencia(){
-        if (numeroReferencia.length()>=3) {
-            System.out.println("ERROR numero de referencia inválido");
-        }
+    public String getnumeroReferencia (){
         return numeroReferencia;
     }
 
-    public void setNumeroReferencia(String numeroDeReferencia){
-        numeroReferencia = numeroDeReferencia;
-    }
-    
-    public void prestar (){
-        vecesPrestado = vecesPrestado +1;
-    }
-    
-    public int getVecesPrestado(){
+    public int getvecesPrestado (){
         return vecesPrestado;
     }
-    
-    public boolean getEsLibroDeTexto(){
+
+    public boolean getEsLibroDeTexto (){
         return esLibroDeTexto;
     }
-}
 
+    public void prestar (){
+        vecesPrestado = vecesPrestado + 1;
+    }
+
+    public void setnumeroReferencia (String numeroDeReferencia){
+        if (numeroDeReferencia.length()>=3){
+            numeroReferencia = numeroDeReferencia;
+        }
+        else {
+            System.out.println("Numeor de refenrencia demasiado corto");
+        }
+    }
+
+    public void imprimeAutor () {
+        System.out.println ("##################");
+        System.out.println ("Autor: " + autor);
+        System.out.println ("##################");
+    }
+
+    public void imprimeTitulo () {
+        System.out.println ("##################");
+        System.out.println ("Titulo: " + titulo);
+        System.out.println ("##################");
+    }
+
+    public void imprimirDetalles () {
+        String numeroRef = "--";
+        if (numeroReferencia == ""){
+            numeroReferencia = numeroRef;
+        }
+        else {
+            numeroRef = numeroReferencia;
+        }
+
+        String libroDeTexto;
+        if (esLibroDeTexto){
+            libroDeTexto = "correcto";
+        }
+        else {
+            libroDeTexto = "falso";
+        }
+
+        System.out.println ("Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroReferencia+", numero de veces que se a prestado: "+ vecesPrestado+", ¿Es un libro de texto? " +libroDeTexto);
+    }
+
+    public String getDetalles (){
+        String devolver = "";
+
+        String numeroRef = "--";
+        if (numeroReferencia == ""){
+            numeroReferencia = numeroRef;
+        }
+        else {
+            numeroRef = numeroReferencia;
+        }
+
+        String libroDeTexto;
+        if (esLibroDeTexto == true){
+            libroDeTexto = "correcto";
+        }
+        else {
+            libroDeTexto = "falso";
+        }
+
+        return  ("Título: "+titulo+", Autor: "+autor+", Páginas: " +numeroPaginas+", Numero de referencia: " +numeroRef+", numero de veces que se a prestado: "+ vecesPrestado+", ¿Es un libro de texto? " +libroDeTexto);
+        
+    }
+}
