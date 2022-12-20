@@ -19,13 +19,13 @@ public class Libro {
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
      */
-    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, int numeroDeVecesPrestado, boolean texto)
+    public Libro(String autorLibro, String tituloLibro, int numeroDePaginas, boolean texto)
     {
         autor = autorLibro;
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
-        vecesPrestado = numeroDeVecesPrestado;
+        vecesPrestado = 0;
         esLibroDeTexto = texto;
     }
 
