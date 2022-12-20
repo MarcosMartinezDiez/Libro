@@ -73,9 +73,9 @@ public class Libro {
     }
 
     public void imprimeTitulo () {
-        System.out.println ("##################");
+        System.out.println ("###################");
         System.out.println ("Titulo: " + titulo);
-        System.out.println ("##################");
+        System.out.println ("###################");
     }
 
     public void imprimirDetalles () {
